@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CustomObservableService } from './custom-observable.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'APIs';
+  constructor(private customObservable: CustomObservableService ){}
+
+  startObserving(): void {
+    this.customObservable.createObservable();
+  }
+
+  stopObserving(): void {
+    this.customObservable.unsubscribeFrom();
+  }
 }

@@ -1,0 +1,30 @@
+<div>
+    <button (click)="toDisplayData()">Get Your Data here</button>
+    <button (click)="toDisplayClimate()">Get Weather Data here</button>
+    <button (click)="toDisplayAir()">Get Air Pollution Data</button>
+</div>
+<div *ngIf="showData">
+        <h1>Data List</h1>
+            <div *ngFor="let d of datas">
+            <p>{{ d }}</p>
+            <!-- <p>{{ d.body }}</p> -->
+            </div>
+</div>
+<div *ngIf="showClimate" >
+        <h1>Climate Data</h1>
+             <p>Place : {{climate.name}}</p>
+             <p>Wind = Speed : {{climate.wind.speed}} , Deg : {{climate.wind.deg}}</p>
+             <p>Co-ordinates = Latitude : {{climate.coord.lat}} , Longitude : {{climate.coord.lon}}</p>
+             <p>Weather = Description of cloud : {{climate.weather[0].description}}</p>
+</div>
+<div *ngIf="showAir">
+    <h1>Air pollution data</h1>
+            <p>Oxygen level : {{air.list[0].components.o3}}</p>
+            <p>Carbon monoxide level : {{air.list[0].components.co}}</p>
+</div>
+<!-- <div>
+    <pre>{{climate | json}}</pre>
+</div>
+<div>
+    <pre>{{datas | json}}</pre>
+</div> -->
